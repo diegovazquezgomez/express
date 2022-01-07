@@ -1,5 +1,5 @@
 import routerx from "express-promise-router";
-import ingresoController from "../controllers/IngresoController";
+import ingresoController from "../controllers/ingresoController";
 import auth from "../middlewares/auth";
 
 const router = routerx();
