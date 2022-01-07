@@ -19,13 +19,25 @@ mongoose
 
 // MIDDLEWARES
 const app = express(); // declaramos la constante app que será un objeto que instancie a express
+var history = require('connect-history-api-fallback');
+app.use(history({
+  index: '/index.html'
+}));
 app.use(morgan("dev"));
 //app.use(cors());
 app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+
+const staticFileMiddleware = express.static(path.join(__dirname + '/public'));
+
+app.use(staticFileMiddleware);
+
+app.get('/', function (req, res) {
+  res.render(path.join(__dirname + '/'));
+  console.log(__dirname)
+});
 
 app.use("/api", router);
 app.set("port", process.env.PORT || 3000); // indicamos al objeto app que escuche el puerto por defecto y si esto no es posible, use el puerto 3000.
