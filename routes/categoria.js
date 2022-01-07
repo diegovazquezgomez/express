@@ -1,5 +1,5 @@
 import routerx from "express-promise-router";
-import categoriaController from "../controllers/categoriaController";
+import categoriaController from "../controllers/CategoriaController";
 import auth from "../middlewares/auth";
 
 const router = routerx();

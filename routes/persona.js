@@ -1,5 +1,5 @@
 import routerx from "express-promise-router";
-import personaController from "../controllers/personaController";
+import personaController from "../controllers/PersonaController";
 import auth from "../middlewares/auth";
 const router = routerx();
 
